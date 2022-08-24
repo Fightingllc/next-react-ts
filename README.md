@@ -1,3 +1,9 @@
+<!--
+ * @Author: 刘凌晨 liulingchen1109@163.com
+ * @Date: 2022-08-24 14:54:56
+ * @LastEditTime: 2022-08-24 21:09:42
+ * @FilePath: \next-react-ts\README.md
+-->
 
 ### prettierrc配置
 {
@@ -21,6 +27,10 @@
   "embeddedLanguageFormatting": 'auto', //对引用代码进行格式化
 }
 
+### mock.js
+    使用mock.js造出假数据 数据插件：google插件
+    FeHelper(前端助手)：JSON自动格式化、手动格式化，支持排序、解码、下载等
+
 ### 路由
     在pages目录下的文件便会自动生成路由
 
@@ -37,5 +47,10 @@
 
 ### stylelint 常见问题
     类名驼峰问题...
-    http://stylelint.docschina.org/user-guide/faq/
+    http://stylelint.docschina.org/user-guide/faq/ 
+
+### react 父子通信
+    父穿子： prop
+    子穿父： 通过回调函数 场景：点击登录弹出登录窗口，是否展示窗口的值isShowVerify，在父组件NavBAr定义，且有handleClose来控制关闭弹窗的值，在子组件Login中，点击X进行关闭，修改isShowVerify的值方法是获取父组件传递的onClose方法，并调用，最终修改了父组件中的值。
+    在实现组件之间的联动场景时也可使用该方法。
     

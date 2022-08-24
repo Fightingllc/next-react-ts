@@ -1,11 +1,12 @@
 /*
  * @Author: 刘凌晨 liulingchen1109@163.com
  * @Date: 2022-08-24 16:11:15
- * @LastEditTime: 2022-08-24 19:40:39
+ * @LastEditTime: 2022-08-24 20:59:51
  * @FilePath: \next-react-ts\components\Login\index.tsx
  */
 
-import React, { useState } from 'react';
+import CountDown from 'components/CountDown';
+import React, { ChangeEvent, useState } from 'react';
 import styles from './index.module.scss';
 
 interface IProps {
@@ -16,16 +17,18 @@ interface IProps {
 // children 是由next.js 提供的
 const Login = (props: IProps) => {
 
-  const { isShow = false } = props;
+  // 弹窗的显示与隐藏
+  const { isShow = false , onClose} = props;
 
-  const [form, setForm] = useState({phone: '', verigy: ''});
+  const [form, setForm] = useState({phone: '', verify: ''});
 
-  console.log(setForm);
+  // 获取验证码：倒计时结束后 显示与隐藏
+  const [isShowVerifyCode,setIsShowVerifyCode] = useState(false);
   
   // 该方法 获取input中的值 返回一个 event 从event中解构出所需要的值 然后通过setState 修改form中的值
-  const handleFormChange = (e:any) => {
+  const handleFormChange = (e:ChangeEvent<HTMLInputElement>) => {
     // console.log(e);
-    const { name, value} = e?.target;
+    const { name, value } = e.target;
     setForm({
       ...form,
 
@@ -35,16 +38,25 @@ const Login = (props: IProps) => {
   }
 
   // 关闭login窗口
-  const handleClose = () => {};
+  const handleClose = () => {
+    onClose && onClose()
+  };
 
   // 获取验证码
-  const handleVerifyCode = () => {}
+  const handleVerifyCode = () => {
+    setIsShowVerifyCode(true)
+  }
 
   // 登录
   const handleLogin = () => {}
 
   // 使用GitHub登录
   const handleOtherGithub = () => {}
+
+  // 获取验证码倒计时 的事件
+  const handleGetCountDownEnd = () => {
+    setIsShowVerifyCode(false)
+  }
 
   return isShow ? (
     <div className={styles.loginArea}>
@@ -71,7 +83,11 @@ const Login = (props: IProps) => {
           value={form.verify}
           onChange={handleFormChange}
         />
-        <span className={styles.verifyCode} onClick={handleVerifyCode}>获取验证码</span>
+        <span className={styles.verifyCode} onClick={handleVerifyCode}>
+          {
+            isShowVerifyCode ? <CountDown time={10} onEnd={handleGetCountDownEnd}/> : '获取验证码'
+          }
+        </span>
       </div>
 
       <div className={styles.loginBtn} onClick={handleLogin}>登录</div>
