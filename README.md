@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### prettierrc配置
+{
+  "printWidth": 80, //单行长度
+  "tabWidth": 2, //缩进长度
+  "useTabs": false, //使用空格代替tab缩进
+  "semi": true, //句末使用分号
+  "singleQuote": true, //使用单引号
+  "quoteProps": 'as-needed', //仅在必需时为对象的key添加引号
+  "jsxSingleQuote": true, // jsx中使用单引号
+  "trailingComma": "all", //多行时尽可能打印尾随逗号
+  "bracketSpacing": true, //在对象前后添加空格-eg: { foo: bar }
+  "jsxBracketSameLine": true, //多属性html标签的‘>’折行放置
+  "arrowParens": "always", //单参数箭头函数参数周围使用圆括号-eg: (x) => x
+  "requirePragma": false, //无需顶部注释即可格式化
+  "insertPragma": false, //在已被preitter格式化的文件顶部加上标注
+  "proseWrap": "preserve", //不知道怎么翻译
+  "htmlWhitespaceSensitivity": "ignore", //对HTML全局空白不敏感
+  "vueIndentScriptAndStyle": false, //不对vue中的script及style标签缩进
+  "endOfLine": "lf", //结束行形式
+  "embeddedLanguageFormatting": 'auto', //对引用代码进行格式化
+}
 
-First, run the development server:
+### 路由
+    在pages目录下的文件便会自动生成路由
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### 路径引用
+    alias: 可以快速的引入不通路径的代码文件，避免反复的写相对路径，提高开发效率
+    在tsconfig.json中进行配置 "baseUrl": "."
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 404
+    若没有info文件夹或路由配置则是404 页面
+    {
+        label: '咨询',
+        value: '/info'
+    },
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### stylelint 常见问题
+    类名驼峰问题...
+    http://stylelint.docschina.org/user-guide/faq/
+    

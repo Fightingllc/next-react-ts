@@ -1,0 +1,87 @@
+.loginArea {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ccc;
+
+    .loginBox {
+        width: 320px;
+        height: 300px;
+        position: relative;
+        top: 33%;
+        left: 33%;
+        background-color: #fff;
+        // transform: translate();
+        padding: 20px;
+        outline: none;
+
+        input {
+            width: 100%;
+            height: 38px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border: 1px solid #999;
+        }
+    
+        input:focus {
+            border: 1px solid #f89;
+        }
+    
+        // 获取验证码
+        .verifyCodeArea {
+            position: relative;
+            cursor: pointer;
+            
+    
+            .verifyCode {
+                position: absolute;
+                right: 14px;
+                top: 8px;
+                font-size: 14px;
+                color: rgb(49, 181, 37);
+            }
+        }
+    }
+
+    .loginTitle {
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .close {
+            color: rgb(199, 40, 67);
+            cursor: pointer;
+            font-size: 25px;
+        }
+    }
+
+    .loginBtn {
+        height: 40px;
+        line-height: 40px;
+        border-radius: 10px;
+        margin-top: 10px;
+        background-color: rgb(49, 181, 37);
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .otherLoginBtn {
+        margin-top: 10px;
+        font-size: 14px;
+        color: rgb(49, 181, 37);
+        cursor: pointer;
+    }
+
+    .loginPrivacy {
+        margin-top: 10px;
+        color: #999;
+        font-size: 14px;
+    }
+}
