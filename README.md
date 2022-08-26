@@ -1,7 +1,7 @@
 <!--
  * @Author: 刘凌晨 liulingchen1109@163.com
  * @Date: 2022-08-24 14:54:56
- * @LastEditTime: 2022-08-24 21:09:42
+ * @LastEditTime: 2022-08-26 22:52:51
  * @FilePath: \next-react-ts\README.md
 -->
 
@@ -53,4 +53,30 @@
     父穿子： prop
     子穿父： 通过回调函数 场景：点击登录弹出登录窗口，是否展示窗口的值isShowVerify，在父组件NavBAr定义，且有handleClose来控制关闭弹窗的值，在子组件Login中，点击X进行关闭，修改isShowVerify的值方法是获取父组件传递的onClose方法，并调用，最终修改了父组件中的值。
     在实现组件之间的联动场景时也可使用该方法。
+
+### 短信平台配置
+    选择容联云通讯：有免费测试号
+    https://www.yuntongxun.com/member/numbermanager
+
+### 创建接口 axios
+    service->fetch.ts
+
+### 调用发送短信接口
+    request.post('/api/user/sendVerifyCode')
+    接口路径根据next.js 来写,next会对api接口进行拦截
+
+### 时间格式化
+    yarn add date-fns
+### 加密
+    yarn add md5
+### 接受base64格式
+    yarn add js-base64
+
+### 缓存验证码
+    为了点击登录时 对输入的验证码进行验证，需要缓存发出去的验证码，开发中使用的redis
+    现使用，iron-session 在内存中保存，供其他api路由使用
     
+### 设置环境变量
+    next内部有使用方法
+    创建 .env.development 进行编辑
+

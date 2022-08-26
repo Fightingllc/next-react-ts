@@ -1,13 +1,16 @@
 /*
  * @Author: 刘凌晨 liulingchen1109@163.com
  * @Date: 2022-08-24 16:11:15
- * @LastEditTime: 2022-08-24 20:59:51
+ * @LastEditTime: 2022-08-26 21:15:53
  * @FilePath: \next-react-ts\components\Login\index.tsx
  */
 
+import { message } from 'antd';
 import CountDown from 'components/CountDown';
 import React, { ChangeEvent, useState } from 'react';
 import styles from './index.module.scss';
+
+import request from '../../service/fetch'
 
 interface IProps {
   isShow: boolean;
@@ -31,7 +34,6 @@ const Login = (props: IProps) => {
     const { name, value } = e.target;
     setForm({
       ...form,
-
       [name]:value
     })
     
@@ -44,7 +46,25 @@ const Login = (props: IProps) => {
 
   // 获取验证码
   const handleVerifyCode = () => {
-    setIsShowVerifyCode(true)
+    // setIsShowVerifyCode(true)
+    if (!form?.phone) {
+      message.warning('请输入手机号')
+      return
+    }
+
+    request.post('/api/user/sendVerifyCode', {
+      to: form?.phone,
+      templateId:1
+    }).then((res: any) => {
+      if (res?.code === 0) {
+        setIsShowVerifyCode(true)
+      } else {
+        message.error(res?.msg || '未知错误')
+      }
+      console.log(res);
+      
+      
+    })
   }
 
   // 登录
