@@ -68,7 +68,19 @@ const Login = (props: IProps) => {
   }
 
   // 登录
-  const handleLogin = () => {}
+  const handleLogin = () => {
+    console.log("handleLogin")
+    request
+      .post('/api/user/login', {
+        ...form,
+      })
+      .then((res: any) => {
+        if(res?.code === 0) {
+          // 登录成功
+          onClose && onClose()
+        }
+      })
+  }
 
   // 使用GitHub登录
   const handleOtherGithub = () => {}

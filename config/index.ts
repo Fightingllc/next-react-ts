@@ -5,8 +5,8 @@
  * @FilePath: \next-react-ts\config\index.ts
  */
 export const ironOptions = {
-    cookieName: process.env.SESSION_COOKIE_NAME,
-    password: process.env.SESSIN_PASSWORD,
+    cookieName: process.env.SESSION_COOKIE_NAME as string,
+    password: process.env.SESSION_PASSWORD as string,
     // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
     cookieOptions: {
         //设置cookie 有效期 一天

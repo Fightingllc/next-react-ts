@@ -34,7 +34,7 @@ async function sendVerifyCode (req: NextApiRequest, res: NextApiResponse) {
     // 验证码有效期
     const expireMinute = '5';
 
-    const url = 'https://app.cloopen.com:8883/2013-12-26/Accounts/${AccountId}/SMS/TemplateSMS?sig=${SigParameter}';
+    const url = `https://app.cloopen.com:8883/2013-12-26/Accounts/${AccountId}/SMS/TemplateSMS?sig=${SigParameter}`;
 
 
     
@@ -42,7 +42,7 @@ async function sendVerifyCode (req: NextApiRequest, res: NextApiResponse) {
     const response = await request.post(url, {
         to,
         templateId,
-        appid: AppId,
+        appId: AppId,
         datas: [verifyCode, expireMinute]
     }, {
         headers: {
