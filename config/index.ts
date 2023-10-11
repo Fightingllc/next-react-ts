@@ -10,7 +10,7 @@ export const ironOptions = {
     // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
     cookieOptions: {
         //设置cookie 有效期 一天
-        maxAge: 24 * 60 * 60 * 1000,
+      maxAge: 24 * 60 * 60 * 1000,
       secure: process.env.NODE_ENV === "production",
     },
     // 环境变量可以通过next官方文档来配置

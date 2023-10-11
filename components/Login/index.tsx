@@ -70,9 +70,11 @@ const Login = (props: IProps) => {
   // 登录
   const handleLogin = () => {
     console.log("handleLogin")
+
     request
       .post('/api/user/login', {
         ...form,
+        identity_type: 'phone'
       })
       .then((res: any) => {
         if(res?.code === 0) {

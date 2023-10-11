@@ -13,7 +13,6 @@ import  {ironOptions}  from 'config/index';
  * @LastEditTime: 2022-08-26 22:49:19
  * @FilePath: \next-react-ts\pages\api\user\sendVerifyCode.ts
  */
-export default withIronSessionApiRoute(sendVerifyCode, ironOptions);
 
 async function sendVerifyCode (req: NextApiRequest, res: NextApiResponse) {
 
@@ -52,7 +51,7 @@ async function sendVerifyCode (req: NextApiRequest, res: NextApiResponse) {
 
 
     console.log(to);
-    console.log(templateId);
+    console.log(verifyCode);
 
     console.log(response);
     
@@ -82,3 +81,5 @@ async function sendVerifyCode (req: NextApiRequest, res: NextApiResponse) {
     
     
 }
+
+export default withIronSessionApiRoute(sendVerifyCode, ironOptions);
